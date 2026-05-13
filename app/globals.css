@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-50 dark:bg-gray-900;
+  }
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  @apply text-primary !important;
+}
+
+.swiper-pagination-bullet-active {
+  @apply bg-primary !important;
+}
