@@ -51,6 +51,11 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(main)/courses/[id]/page.js"
+    ],
+    "/(main)/profile/update/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/(main)/profile/update/page.js"
     ]
   }
 }
