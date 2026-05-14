@@ -1,6 +1,6 @@
 1.Project name: SkillSphere - Modern E-Learning Platform
 2.Purpose: SkillSphere is a modern online learning platform designed to help students and professionals upgrade their skills through high-quality courses. The platform provides an intuitive interface for exploring courses, watching lessons, and enrolling in skill-based programs like Web Development, Design, Marketing, Data Science, and more.
-3.Live URL:
+3.Live URL: https://glittering-crumble-8c6044.netlify.app/
 4.Key features:
 i) Authentication - Email/Password registration and login,Google OAuth social login,Protected routes (course details only for logged-in users),
 ii) Course Management - 6+ professional courses with detailed information, Search functionality to find courses by title, Course categories(Development, Design, Marketing, Data Science, Cloud Computing), Course details page with curriculum and instructor information, Popular and trending courses sections

@@ -14,7 +14,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  // Function to fetch session
+ 
   const fetchSession = async () => {
     const { data } = await authClient.getSession();
     setSession(data);
@@ -29,13 +29,10 @@ export default function Navbar() {
     await authClient.signOut();
     toast.success("Logged out successfully");
     
-    // Clear session state immediately
     setSession(null);
-    
-    // Force a hard refresh to clear any cached state
+
     router.refresh();
-    
-    // Redirect to home page
+ 
     router.push("/");
   };
 
@@ -44,7 +41,7 @@ export default function Navbar() {
     { href: "/courses", label: "Courses" },
   ];
 
-  // Don't render anything until we know the session state
+
   if (loading) {
     return (
       <nav className="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50">
