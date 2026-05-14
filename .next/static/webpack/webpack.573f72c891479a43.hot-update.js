@@ -11,7 +11,7 @@ self["webpackHotUpdate_N_E"]("webpack",{},
 /******/ function(__webpack_require__) { // webpackRuntimeModules
 /******/ /* webpack/runtime/getFullHash */
 /******/ !function() {
-/******/ 	__webpack_require__.h = function() { return "8560e619cfec2f90"; }
+/******/ 	__webpack_require__.h = function() { return "ff718837e79da05e"; }
 /******/ }();
 /******/ 
 /******/ /* webpack/runtime/jsonp chunk loading */
@@ -36,7 +36,7 @@ self["webpackHotUpdate_N_E"]("webpack",{},
 /******/ 				if(installedChunkData) {
 /******/ 					promises.push(installedChunkData[2]);
 /******/ 				} else {
-/******/ 					if(/^(app(\/(\((auth\)\/((login|register)\/page|layout)|main\)\/(layout|page))|layout|not\-found)|\-pages\-internals)|main\-app)$/.test(chunkId)) {
+/******/ 					if(/^(app(\/(\(main\)\/((|courses\/|profile\/)page|layout)|layout|not\-found)|\-pages\-internals)|main(|\-app)|pages\/_(app|error)|\/_error|react\-refresh)$/.test(chunkId)) {
 /******/ 						// setup Promise in chunk cache
 /******/ 						var promise = new Promise(function(resolve, reject) { installedChunkData = installedChunks[chunkId] = [resolve, reject]; });
 /******/ 						promises.push(installedChunkData[2] = promise);
