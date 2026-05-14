@@ -12,26 +12,53 @@ export default function Navbar() {
   const pathname = usePathname();
   const [session, setSession] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  // Function to fetch session
+  const fetchSession = async () => {
+    const { data } = await authClient.getSession();
+    setSession(data);
+    setLoading(false);
+  };
 
   useEffect(() => {
-    const getSession = async () => {
-      const { data } = await authClient.getSession();
-      setSession(data);
-    };
-    getSession();
+    fetchSession();
   }, []);
 
   const handleLogout = async () => {
     await authClient.signOut();
     toast.success("Logged out successfully");
-    router.push("/");
+    
+    // Clear session state immediately
+    setSession(null);
+    
+    // Force a hard refresh to clear any cached state
     router.refresh();
+    
+    // Redirect to home page
+    router.push("/");
   };
 
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/courses", label: "Courses" },
   ];
+
+  // Don't render anything until we know the session state
+  if (loading) {
+    return (
+      <nav className="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-between items-center h-16">
+            <Link href="/" className="text-2xl font-bold text-primary">
+              SkillSphere
+            </Link>
+            <div className="skeleton w-24 h-8"></div>
+          </div>
+        </div>
+      </nav>
+    );
+  }
 
   return (
     <nav className="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50">
@@ -41,6 +68,7 @@ export default function Navbar() {
             SkillSphere
           </Link>
 
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
               <Link
@@ -58,13 +86,16 @@ export default function Navbar() {
               <div className="flex items-center space-x-4">
                 <Link href="/profile" className="flex items-center space-x-2 hover:text-primary">
                   <img
-                    src={session.user.image || "https://ui-avatars.com/api/?background=6366f1&color=fff&name=" + session.user.name}
+                    src={session.user.image || `https://ui-avatars.com/api/?background=6366f1&color=fff&name=${session.user.name}`}
                     alt="Avatar"
                     className="w-8 h-8 rounded-full object-cover"
                   />
                   <span className="text-sm hidden lg:inline">{session.user.name}</span>
                 </Link>
-                <button onClick={handleLogout} className="btn btn-sm btn-outline btn-error">
+                <button 
+                  onClick={handleLogout} 
+                  className="btn btn-sm btn-outline btn-error"
+                >
                   <LogOut className="h-4 w-4 mr-1" />
                   Logout
                 </button>
@@ -81,11 +112,16 @@ export default function Navbar() {
             )}
           </div>
 
-          <button className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+          {/* Mobile menu button */}
+          <button
+            className="md:hidden"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
             {mobileMenuOpen ? <X /> : <Menu />}
           </button>
         </div>
 
+        {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div className="md:hidden py-4 border-t">
             {navLinks.map((link) => (
@@ -102,20 +138,38 @@ export default function Navbar() {
             ))}
             {session ? (
               <>
-                <Link href="/profile" className="block py-2 hover:text-primary" onClick={() => setMobileMenuOpen(false)}>
+                <Link 
+                  href="/profile" 
+                  className="block py-2 hover:text-primary" 
+                  onClick={() => setMobileMenuOpen(false)}
+                >
                   <User className="inline h-4 w-4 mr-2" />
                   My Profile
                 </Link>
-                <button onClick={handleLogout} className="btn btn-sm btn-outline btn-error w-full mt-2">
+                <button 
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    handleLogout();
+                  }} 
+                  className="btn btn-sm btn-outline btn-error w-full mt-2"
+                >
                   Logout
                 </button>
               </>
             ) : (
               <div className="space-y-2 mt-2">
-                <Link href="/login" className="btn btn-sm btn-primary w-full" onClick={() => setMobileMenuOpen(false)}>
+                <Link 
+                  href="/login" 
+                  className="btn btn-sm btn-primary w-full" 
+                  onClick={() => setMobileMenuOpen(false)}
+                >
                   Login
                 </Link>
-                <Link href="/register" className="btn btn-sm btn-outline w-full" onClick={() => setMobileMenuOpen(false)}>
+                <Link 
+                  href="/register" 
+                  className="btn btn-sm btn-outline w-full" 
+                  onClick={() => setMobileMenuOpen(false)}
+                >
                   Register
                 </Link>
               </div>
