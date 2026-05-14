@@ -1,0 +1,76 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "title": "Complete Web Development Bootcamp",
+      "instructor": "John Doe",
+      "duration": "20 hours",
+      "rating": 4.8,
+      "level": "Beginner",
+      "description": "Learn full-stack web development from scratch. Master HTML, CSS, JavaScript, React, Node.js, and MongoDB.",
+      "image": "https://picsum.photos/id/0/400/300",
+      "category": "Development",
+      "curriculum": ["Introduction to Web Development", "HTML & CSS Fundamentals", "JavaScript Essentials", "React Basics", "Backend with Node.js", "Final Project"]
+    },
+    {
+      "id": 2,
+      "title": "UI/UX Design Masterclass",
+      "instructor": "Sarah Johnson",
+      "duration": "15 hours",
+      "rating": 4.9,
+      "level": "Intermediate",
+      "description": "Master the art of user interface and user experience design. Learn Figma, prototyping, and design thinking.",
+      "image": "https://picsum.photos/id/20/400/300",
+      "category": "Design",
+      "curriculum": ["Design Fundamentals", "Color Theory", "Typography", "Figma Mastery", "Prototyping", "User Testing"]
+    },
+    {
+      "id": 3,
+      "title": "Digital Marketing Pro",
+      "instructor": "Mike Chen",
+      "duration": "12 hours",
+      "rating": 4.7,
+      "level": "Beginner",
+      "description": "Complete digital marketing course covering SEO, social media, email marketing, and analytics.",
+      "image": "https://picsum.photos/id/26/400/300",
+      "category": "Marketing",
+      "curriculum": ["Marketing Fundamentals", "SEO Strategies", "Social Media Marketing", "Email Campaigns", "Analytics & Reporting"]
+    },
+    {
+      "id": 4,
+      "title": "Data Science & AI",
+      "instructor": "Dr. Emily Brown",
+      "duration": "25 hours",
+      "rating": 4.9,
+      "level": "Advanced",
+      "description": "Learn data science, machine learning, and AI with Python. Build real-world projects.",
+      "image": "https://picsum.photos/id/1/400/300",
+      "category": "Data Science",
+      "curriculum": ["Python Basics", "Data Analysis", "Machine Learning", "Neural Networks", "AI Applications", "Capstone Project"]
+    },
+    {
+      "id": 5,
+      "title": "Mobile App Development",
+      "instructor": "Alex Turner",
+      "duration": "18 hours",
+      "rating": 4.8,
+      "level": "Intermediate",
+      "description": "Build cross-platform mobile apps with React Native. Learn to deploy to iOS and Android.",
+      "image": "https://picsum.photos/id/15/400/300",
+      "category": "Development",
+      "curriculum": ["React Native Basics", "Navigation", "State Management", "API Integration", "Testing", "App Store Deployment"]
+    },
+    {
+      "id": 6,
+      "title": "Cloud Computing with AWS",
+      "instructor": "Chris Evans",
+      "duration": "22 hours",
+      "rating": 4.7,
+      "level": "Advanced",
+      "description": "Master Amazon Web Services. Learn EC2, S3, Lambda, and more. Prepare for AWS certification.",
+      "image": "https://picsum.photos/id/29/400/300",
+      "category": "Cloud Computing",
+      "curriculum": ["Cloud Fundamentals", "EC2 & Compute", "S3 Storage", "Lambda Functions", "Security Best Practices", "AWS Certification Prep"]
+    }
+  ]
+}
